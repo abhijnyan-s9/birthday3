@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow-x: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 50px 20px;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 30px 0;
+      border: 5px solid #fff;
+    }
+
+    .message {
+      font-size: 22px;
+      margin-top: 20px;
+      font-weight: bold;
+      min-height: 30px;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20%;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .btn-celebrate {
+      background: #fff;
+      color: #ff4e50;
+    }
+
+    .btn-celebrate:hover {
+      background: #ff4e50;
+      color: #fff;
+    }
+
+    .btn-music {
+      background: #fff;
+      color: #2193b0;
+    }
+
+    .btn-music:hover {
+      background: #2193b0;
+      color: #fff;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 80px;
+      height: 100px;
+      background: red;
+      border-radius: 50% 50% 50% 50%;
+      animation: rise 8s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes rise {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(-120vh);}
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+      background-color: red;
+      top: -20px;
+      animation: fall 4s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(100vh);}
+    }
+
+    /* Friends Gallery */
+    .gallery {
+      background: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      color: #333;
+    }
+
+    .gallery h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+  .card {
+  width: 100%;
+  aspect-ratio: .9;
+  perspective: 1000px;
+}
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      padding-top: 100%; /* square */
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-back {
+  background: #ff9a9e;
+  color: #ffffff;
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: left;   /* make text left aligned */
+  overflow-y: auto;   /* scroll if message is long */
+}
+
+.card-back h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #ff0074;
+}
+
+.card-back p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.card-back h4 {
+  font-weight: normal;
+  color: #555;
+  line-height: 1.4;
+  /* Auto-adjust font size:
+     min: 0.8rem, prefers 1rem, max: 1.2rem depending on card space */
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
+  overflow-y: auto; /* adds scroll if text is too long */
+  max-height: 100%;
+}
+.group-photo {
+  margin: 60px auto;
+  text-align: center;
+}
+
+.simple-frame {
+  display: inline-block;
+  width: 90%;                 /* Big frame width */
+  max-width: 2800px;          /* Not too huge on very large screens */
+  padding: 25px;
+  border: 14px solid #444;    /* Dark frame border */
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.frame-title {
+  margin-bottom: 20px;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.simple-frame img {
+  width: 100%;
+  max-height: 1000px;          /* Keeps it large but not too tall */
+  object-fit: cover;          /* Keeps photo nicely fitted */
+  border: 6px solid #eee;     /* Inner border */
+  border-radius: 12px;        /* Smooth corners */
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Birthday, Anushya (Moti)! 🎉</h1>
+    <img src="Anushya.jpg"Friend Photo" class="photo">
+    <p class="message" id="typewriter"></p>
+    <div class="buttons">
+      <button class="btn btn-celebrate" onclick="celebrate()">Celebrate 🎈</button>
+      <button class="btn btn-music" onclick="toggleMusic()">Play Music 🎵</button>
+    </div>
+  </div>
+
+  <!-- Friends Gallery -->
+  <div class="gallery">
+    <h2>Memories with Friends 💖</h2>
+    <div class="gallery-grid">
+      <!-- Repeat 10 cards -->
+      <div class="card">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="prachi.jpg" alt="Friend Photo 1">
+    </div>
+    <div class="card-back">
+      <h2>Anushya</h2>
+      <p>
+        Unhinged, outspoken, crazy and the spark of the group.  
+        Bhaii, it's been exactly a year of being friends with you and now I hope that I can claim to know you (you disagreed when I last said that).  
+        You notice everything about everyone around, care about them and you're always there for them.  
+        Just know that we all have got your back too and we miss you, a lot. Love you bbg.  
+      </p>
+      <p>
+        This time come back with a bang and a lot of pooja paath, cause more and more craziness is awaiting you.  
+      </p>
+      <p>
+        Hugs and kisses (cause ik you hate them).
+      </p>
+    </div>
+  </div>
+</div>
+      <div class="card">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="shreya.jpg" alt="Friend Photo 2">
+    </div>
+    <div class="card-back">
+      <h2>TO ANUSHYA BABU</h2>
+      <p>
+        Happy Bday Anushya Didi. Kise pta tha ek random ladki ka call aayega kapda lene NIT point jaane ko and i was thinking koi kisi ko itne random kaise call kr skta h. Opposite attracts toh sunna tha lekin opposite people ka bhi ho payega pta ni.Same page pe aana was difficult but same people ke sath rahena nhi. But you genuinely are a true friend to me.Mujhe samajh ni aa ra letter likhna itna difficult h ya tumhare liye letter likhna. Take care of yourself and get well soon. And ha  thoda sudhar jao tum apni cheeze sambhal ke rakha kro. 
+  
+      </p>
+      <p>
+        Anyways SARANGHAE ❤!
+        Your unofficial 
+      </p>
+      <p>
+        roomates from GH3.
+      </p>
+    </div>
+  </div>
+</div>
+      <div class="card">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="Shruvro.jpg" alt="Friend Photo 3">
+    </div>
+    <div class="card-back">
+      <h2>Anushya</h2>
+      <p>
+        Happy birthday Anushya,stay happy and blessed
+
+      </p>
+      
+      <p>
+        No SMCH and JJ hereon  
+      </p>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="alindo.jpg" alt="Friend Photo 4">
+    </div>
+    <div class="card-back">
+      <h2>Anushya</h2>
+      <p>
+        Happy birthday to one of my best friends in college. I might miss you the most after your roommates. Pls comeback soon, so many levista and boudi chills are pending☹🫶
+ 
+      </p>
+      <p>
+        Alindo.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="arko.jpg" alt="Friend Photo 5">
+    </div>
+    <div class="card-back">
+      <h2>Anushya</h2>
+      <p>
+        Wishing the happiest birthday to our favourite Bihari friend. See you very soon! 🫂
+
+      </p>
+      
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="shruti.jpg" alt="Friend Photo 7">
+    </div>
+    <div class="card-back">
+      <h2>Anushya</h2>
+      <p>
+        Wishing you happiest birthday anushya
+
+      </p>
+      
+      <p>
+        Jaldi se aaja hmlog wait kr rhe h
+      </p>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="abir.jpg" alt="Friend Photo 8">
+    </div>
+    <div class="card-back">
+      <h2>Moti</h2>
+      <p>
+        Happy birthday paagal ladki
+
+      </p>
+      
+      <p>
+        Hamesha kalesh karte raho aur khush raho
+      </p>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="abhijnyan.jpg" alt="Friend Photo 6">
+    </div>
+    <div class="card-back">
+      <h2>Moti</h2>
+      <p>
+        Happy birthday paagal ladki
+
+      </p>
+      
+      <p>
+        Hamesha kalesh karte raho aur khush raho
+      </p>
+    </div>
+  </div>
+</div>
+<div class="group-photo">
+  <div class="simple-frame">
+    <div class="frame-title">FRIENDS</div>
+    <img src="group.jpg" alt="Group Photo">
+  </div>
+</div>
+
+  <audio id="bg-music" loop>
+    <source src="Happy Birthday Song  Birthday Song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Typewriter Effect
+    const messages = [
+      "Wishing you a day filled with love ❤️",
+      "May your dreams shine bright ✨",
+      "You’re the best friend ever 🌸",
+      "Happy Birthday once again 🎂"
+    ];
+    let i = 0, j = 0;
+    function typeWriter() {
+      if (j < messages[i].length) {
+        document.getElementById("typewriter").innerHTML += messages[i].charAt(j);
+        j++;
+        setTimeout(typeWriter, 100);
+      } else {
+        setTimeout(() => {
+          document.getElementById("typewriter").innerHTML = "";
+          j = 0;
+          i = (i + 1) % messages.length;
+          typeWriter();
+        }, 2000);
+      }
+    }
+    typeWriter();
+
+    // Celebrate function (balloons + confetti)
+    function celebrate() {
+      for (let i = 0; i < 20; i++) {
+        let balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.left = Math.random() * window.innerWidth + "px";
+        balloon.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+        balloon.style.animationDuration = (6 + Math.random() * 4) + "s";
+        document.body.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 8000);
+      }
+
+      for (let i = 0; i < 50; i++) {
+        let confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.background = `hsl(${Math.random() * 360}, 70%, 50%)`;
+        confetti.style.animationDuration = (2 + Math.random() * 3) + "s";
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 4000);
+      }
+    }
+
+    // Music toggle
+    function toggleMusic() {
+      const music = document.getElementById("bg-music");
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
+</body>
+</html>
